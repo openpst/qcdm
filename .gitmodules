@@ -6,3 +6,9 @@
 	path = lib/gui-common
 	url = https://github.com/openpst/gui-common.git
 
+[submodule "lib/libopenpst"]
+	path = lib/libopenpst
+	url = https://github.com/openpst/libopenpst
+[submodule "lib/gui-common"]
+	path = lib/gui-common
+	url = https://github.com/openpst/gui-common

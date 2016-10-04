@@ -1,10 +1,10 @@
 #-------------------------------------------------
-# PLACEHOLDER
+# QMake Build Script for: openpst/qcdm
 #-------------------------------------------------
 
-QT += core gui xml
+lessThan(QT_MAJOR_VERSION, 5): error("At least Qt 5.0 is required")
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT += core gui widgets xml
 
 CONFIG += C++11
 
@@ -12,45 +12,59 @@ TARGET = qcdm
 
 TEMPLATE = app
 
-INCLUDEPATH += $$PWD/../lib/serial/include $$PWD/../src
+equals(BASE_DIR, ""):		BASE_DIR 		= $$PWD
+equals(LIBOPENPST_DIR, ""):	LIBOPENPST_DIR 	= $$PWD/lib/libopenpst
+equals(GUICOMMON_DIR, ""):  GUICOMMON_DIR 	= $$PWD/lib/gui-common
+equals(BUILD_DIR, ""):   	BUILD_DIR 		= $$PWD/build
 
-DEPENDPATH += $$PWD/../
+INCLUDEPATH += \
+	$$BASE_DIR/include \
+	$$LIBOPENPST_DIR/include \
+	$$LIBOPENPST_DIR/lib/serial/include \
+	$$GUICOMMON_DIR/include
 
-VPATH += $$PWD/../
+DEPENDPATH += $$BASE_DIR/
+
+VPATH += $$BASE_DIR/
 
 SOURCES += \
-    src/util/hexdump.cpp \
-    src/gui/application.cpp \
-    src/gui/qcdm_window.cpp \
-    src/gui/about_dialog.cpp \
-    src/gui/worker/qcdm_efs_directory_tree_worker.cpp \
-    src/gui/worker/qcdm_efs_file_read_worker.cpp \
-    src/gui/worker/qcdm_efs_file_write_worker.cpp \
-    src/gui/worker/qcdm_memory_read_worker.cpp \
-    src/gui/worker/qcdm_prl_read_worker.cpp \
-    src/gui/worker/qcdm_prl_write_worker.cpp \
-    src/gui/worker/qcdm_nv_item_read_worker.cpp \
-    src/qcdm.cpp
+    $$BASE_DIR/src/qcdm_window.cpp \
+    $$BASE_DIR/src/worker/qcdm_efs_directory_tree_worker.cpp \
+    $$BASE_DIR/src/worker/qcdm_efs_file_read_worker.cpp \
+    $$BASE_DIR/src/worker/qcdm_efs_file_write_worker.cpp \
+    $$BASE_DIR/src/worker/qcdm_memory_read_worker.cpp \
+    $$BASE_DIR/src/worker/qcdm_prl_read_worker.cpp \
+    $$BASE_DIR/src/worker/qcdm_prl_write_worker.cpp \
+    $$BASE_DIR/src/worker/qcdm_nv_item_read_worker.cpp \
+    $$BASE_DIR/src/main.cpp
 
 HEADERS  += \
-    src/util/hexdump.h \
-    src/gui/qcdm_window.h \
-    src/gui/about_dialog.h \
-    src/worker/gui/qcdm_efs_directory_tree_worker.h \
-    src/worker/gui/qcdm_efs_file_read_worker.h \
-    src/worker/gui/qcdm_efs_file_write_worker.h \
-    src/worker/gui/qcdm_memory_read_worker.h \
-    src/worker/gui/qcdm_prl_read_worker.h \
-    src/worker/gui/qcdm_prl_write_worker.h \
-    src/worker/gui/qcdm_nv_item_read_worker.h \
-    src/gui/application.h 
+    $$BASE_DIR/include/qcdm_window.h \
+    $$BASE_DIR/include/worker/qcdm_efs_directory_tree_worker.h \
+    $$BASE_DIR/include/worker/qcdm_efs_file_read_worker.h \
+    $$BASE_DIR/include/worker/qcdm_efs_file_write_worker.h \
+    $$BASE_DIR/include/worker/qcdm_memory_read_worker.h \
+    $$BASE_DIR/include/worker/qcdm_prl_read_worker.h \
+    $$BASE_DIR/include/worker/qcdm_prl_write_worker.h \
+    $$BASE_DIR/include/worker/qcdm_nv_item_read_worker.h
 
 
-FORMS  += resources/ui/qcdm_window.ui
-FORMS  += resources/ui/about_dialog.ui
+FORMS  += $$BASE_DIR/resources/ui/qcdm_window.ui
 
-RESOURCES = resources/qcdm.qrc
+RESOURCES = $$BASE_DIR/resources/qcdm.qrc
 
-win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/release/  -llibopenpst -lserial
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/debug/ -llibopenpst -lserial
-else:unix: LIBS += -L$$OUT_PWD/ -llibopenpst -lserial
+###
+## Include gui-common .pro
+###
+
+include($$GUICOMMON_DIR/gui-common.pro)
+
+###
+## Make libopenpst and link against it
+###
+
+QMAKE_EXTRA_TARGETS += libopenpst
+PRE_TARGETDEPS 		+= libopenpst
+libopenpst.commands = cd $$LIBOPENPST_DIR && make qmake
+
+LIBS += -L$$LIBOPENPST_DIR/build -lopenpst

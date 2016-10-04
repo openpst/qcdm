@@ -9,8 +9,8 @@
 * @author Matteson Raab <mraabhimself@gmail.com>
 */
 
-#include "gui/application.h"
-#include "gui/qcdm_window.h"
+#include "application.h"
+#include "qcdm_window.h"
 
 /**
 * @brief main

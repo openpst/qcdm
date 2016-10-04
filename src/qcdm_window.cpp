@@ -15,10 +15,6 @@
 
 
 using namespace OpenPST::GUI;
-using OpenPST::AboutDialog;
-using OpenPST::QC::DmEfsManager;
-using OpenPST::QC::DmEfsNode;
-
 
 QcdmWindow::QcdmWindow(QWidget *parent) :
     QMainWindow(parent),

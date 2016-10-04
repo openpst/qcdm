@@ -23,11 +23,11 @@
 #include <QtXml>
 #include "ui_qcdm_window.h"
 #include "about_dialog.h"
-#include "qc/dm.h"
-#include "qc/dm_nv.h"
-#include "qc/dm_efs.h"
-#include "qc/dm_efs_manager.h"
-#include "serial/qcdm_serial.h"
+#include "qualcomm/dm.h"
+#include "qualcomm/dm_nv.h"
+#include "qualcomm/dm_efs.h"
+#include "qualcomm/dm_efs_manager.h"
+#include "qualcomm/qcdm_serial.h"
 #include "worker/qcdm_efs_directory_tree_worker.h"
 #include "worker/qcdm_efs_file_read_worker.h"
 #include "worker/qcdm_efs_file_write_worker.h"
@@ -40,6 +40,10 @@
 namespace Ui {
 	class QcdmWindow;
 }
+
+using OpenPST::AboutDialog;
+using OpenPST::QC::DmEfsManager;
+using OpenPST::QC::DmEfsNode;
 
 namespace OpenPST {
 	namespace GUI {

@@ -3,7 +3,7 @@
 *
 * @file qcdm_efs_file_write_worker.cpp
 * @class QcdmEfsFileWriteWorker
-* @package OpenPST
+* @package openpst/qcdm
 * @brief Handles background processing of file writing
 *
 * @author Gassan Idriss <ghassani@gmail.com>

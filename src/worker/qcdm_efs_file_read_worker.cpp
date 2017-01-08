@@ -3,7 +3,7 @@
 *
 * @file qcdm_efs_file_read_worker.cpp
 * @class QcdmEfsFileReadWorker
-* @package OpenPST
+* @package openpst/qcdm
 * @brief Handles background processing of file reading
 *
 * @author Gassan Idriss <ghassani@gmail.com>

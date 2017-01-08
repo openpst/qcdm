@@ -2,7 +2,7 @@
 * LICENSE PLACEHOLDER
 *
 * @file qcdm.cpp
-* @package OpenPST
+* @package openpst/qcdm
 * @brief qcdm program entry point
 *
 * @author Gassan Idriss <ghassani@gmail.com>

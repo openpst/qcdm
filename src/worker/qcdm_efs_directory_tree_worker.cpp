@@ -3,7 +3,7 @@
 *
 * @file qcdm_efs_directory_tree_worker.cpp
 * @class QcdmEfsDirectoryTreeWorker
-* @package OpenPST
+* @package openpst/qcdm
 * @brief Handles background processing of directory reading
 *
 * @author Gassan Idriss <ghassani@gmail.com>

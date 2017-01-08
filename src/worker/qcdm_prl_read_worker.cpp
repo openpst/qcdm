@@ -3,7 +3,7 @@
 *
 * @file qcdm_prl_read_worker.cpp
 * @class QcdmPrlReadWorker
-* @package OpenPST
+* @package openpst/qcdm
 * @brief Handles background processing of reading PRL
 *
 * @author Gassan Idriss <ghassani@gmail.com>

@@ -3,7 +3,7 @@
 *
 * @file qcdm_memory_read_worker.cpp
 * @class QcdmMemoryReadWorker
-* @package OpenPST
+* @package openpst/qcdm
 * @brief Handles background processing of memory reading
 *
 * @author Gassan Idriss <ghassani@gmail.com>

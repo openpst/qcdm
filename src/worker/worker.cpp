@@ -3,7 +3,7 @@
 *
 * @file worker.cpp
 * @class Worker
-* @package OpenPST
+* @package openpst/qcdm
 * @brief Base class for all thread workers
 *
 * @author Gassan Idriss <ghassani@gmail.com>

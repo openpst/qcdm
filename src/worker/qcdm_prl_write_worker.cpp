@@ -3,7 +3,7 @@
 *
 * @file qcdm_prl_write_worker.h
 * @class QcdmPrlWriteWorker
-* @package OpenPST
+* @package openpst/qcdm
 * @brief Handles background processing of writing PRL
 *
 * @author Gassan Idriss <ghassani@gmail.com>

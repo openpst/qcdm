@@ -3,7 +3,7 @@
 *
 * @file qcdm_nv_item_read_worker.cpp
 * @class QcdmNvItemReadWorker
-* @package OpenPST
+* @package openpst/qcdm
 * @brief Handles background processing of NV item reading
 *
 * @author Gassan Idriss <ghassani@gmail.com>

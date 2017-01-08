@@ -3,7 +3,7 @@
 *
 * @file qcdm_window.cpp
 * @class QcdmWindow
-* @package OpenPST
+* @package openpst/qcdm
 * @brief QCDM GUI interface class
 *
 * @author Gassan Idriss <ghassani@gmail.com>

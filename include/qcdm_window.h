@@ -10,8 +10,7 @@
 * @author Matteson Raab <mraabhimself@gmail.com>
 */
 
-#ifndef _GUI_QCDM_WINDOW_H
-#define _GUI_QCDM_WINDOW_H
+#pragma once
 
 #include <QMainWindow>
 #include <QVariant>
@@ -44,6 +43,8 @@ namespace Ui {
 using OpenPST::AboutDialog;
 using OpenPST::QC::DmEfsManager;
 using OpenPST::QC::DmEfsNode;
+using OpenPST::QC::QcdmSerialError;
+using OpenPST::Serial::SerialError;
 
 namespace OpenPST {
 	namespace GUI {
@@ -548,4 +549,3 @@ namespace OpenPST {
 		};
 	}
 }
-#endif // _GUI_QCDM_WINDOW_H

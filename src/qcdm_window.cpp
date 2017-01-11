@@ -11,8 +11,6 @@
 */
 
 #include "qcdm_window.h"
-#include "util/endian.h"
-
 
 using namespace OpenPST::GUI;
 
@@ -243,19 +241,15 @@ void QcdmWindow::connectPort()
 */
 void QcdmWindow::disconnectPort()
 {
-    if (port.isOpen()) {
-        QString closeText = "Disconnected from ";
-        closeText.append(currentPort.port.c_str());
-        log(kLogTypeInfo, closeText);
-
-        port.close();
-
-        ui->portConnectButton->setEnabled(true);
-        ui->portDisconnectButton->setEnabled(false);
-        ui->portListRefreshButton->setEnabled(true);
-        ui->portListComboBox->setEnabled(true);
-        disableUI();
-    }
+	if (port.isOpen()) {
+		port.close();
+		log("Port Closed");
+	    ui->portConnectButton->setEnabled(true);
+	    ui->portDisconnectButton->setEnabled(false);
+	    ui->portListRefreshButton->setEnabled(true);
+	    ui->portListComboBox->setEnabled(true);    
+	    disableUI();
+	}
 }
 
 /**

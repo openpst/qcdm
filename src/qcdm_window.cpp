@@ -17,7 +17,7 @@ using namespace OpenPST::GUI;
 QcdmWindow::QcdmWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::QcdmWindow),
-    port("", 115200),
+    port("", 115200, 100),
 	efsManager(port),
 	nvItemReadWorker(nullptr)
 {
